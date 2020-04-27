@@ -10,7 +10,7 @@ class Transfer
     end
     
     def valid?
-      if self.reciever.valid? == true && self.sender.valid? == true
+      if self.receiver.valid? == true && self.sender.valid? == true
         return true 
       else 
         return false
