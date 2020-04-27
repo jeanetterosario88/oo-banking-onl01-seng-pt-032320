@@ -31,7 +31,7 @@ class Transfer
     
     def reverse_transfer
       if self.status = "complete"
-        self.receiver.balance = self.reciever.balance + self.transfer
+        self.receiver.balance = self.receiver.balance + self.transfer
         self.sender.balance = self.sender.balance - self.transfer
         self.status = "reversed"
       end
