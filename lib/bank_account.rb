@@ -1,4 +1,4 @@
-n 
+
 class BankAccount
   
   attr_accessor :status, :balance
@@ -14,22 +14,24 @@ class BankAccount
     end
     
     def deposit(addtlmoney)
-      newbalance = balance + addtlmoney
-      balance = newbalance
-      balance
+      self.balance = self.balance + addtlmoney
     end
 
     def display_balance
-     puts "Your balance is $#{balance}."
+      return "Your balance is $#{self.balance}."
     end
     
-    def valid 
+    def valid?
       if status == "open" && balance > 0 
+        return true 
+      else
+        return false
       end
     end
     
     def close_account 
-      status = "closed"
+      self.status = "closed"
     end
-  
+
 end
+
