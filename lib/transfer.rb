@@ -16,11 +16,17 @@ class Transfer
     end
     
     def execute_transaction
-      if reciever.balance
-      
-      if senderdeposit(addtlmoney)
-      self.balance = self.balance + addtlmoney
-    
+      if self.reciever.balance > self.transfer && status = "pending"
+        self.reciever.balance = self.reciever.balance + self.transfer
+        self.sender.balance = self.sender.balance - self.transfer
+        self.status = "complete"
+      else 
+        return "Transaction rejected. Please check your account balance."
+        status = "rejected"
+      end
+    end
+        
+       
       
     
     
@@ -28,12 +34,6 @@ end
 
 
 
-#     it "can execute a successful transaction between two accounts" do
-#       transfer.execute_transaction
-#       expect(amanda.balance).to eq(950)
-#       expect(avi.balance).to eq(1050)
-#       expect(transfer.status).to eq("complete")
-#     end
 
 #     it "each transfer can only happen once" do
 #       transfer.execute_transaction
