@@ -17,8 +17,8 @@ class Transfer
     
     def execute_transaction
       if self.reciever.balance > self.transfer && status = "pending"
-        self.reciever.balance = self.reciever.balance + self.transfer
-        self.sender.balance = self.sender.balance - self.transfer
+        self.reciever.balance = self.reciever.balance - self.transfer
+        self.sender.balance = self.sender.balance + self.transfer
         self.status = "complete"
       else 
         return "Transaction rejected. Please check your account balance."
@@ -27,7 +27,6 @@ class Transfer
     end
     
     def reverse_transfer
-      if self.reciever.balance > self.transfer && status = "pending"
         self.reciever.balance = self.reciever.balance + self.transfer
         self.sender.balance = self.sender.balance - self.transfer
         self.status = "complete"
